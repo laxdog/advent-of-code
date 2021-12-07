@@ -27,14 +27,18 @@ def calc_fuel2(pos, crabs):
 
 def go():
     crabs = get_lines()
-    last = sum(crabs) // len(crabs)
+    crabs.sort()
+    last = crabs[len(crabs)//2]
     fuel = 99999999
-    fuel2 = 99999999
-    for _ in range(200):
+    for _ in range(3):
+        print(last, fuel)
         fuel = calc_fuel(last, crabs) if calc_fuel(last, crabs) < fuel else fuel
         last += 1 if calc_fuel(last + 1, crabs) < calc_fuel(last, crabs) else -1
 
-    for _ in range(200):
+    fuel2 = 99999999
+    last = sum(crabs) // len(crabs)
+    for _ in range(3):
+        print(last)
         fuel2 = calc_fuel2(last, crabs) if calc_fuel2(last, crabs) < fuel2 else fuel2
         last += 1 if calc_fuel2(last + 1, crabs) < calc_fuel2(last, crabs) else -1
 
