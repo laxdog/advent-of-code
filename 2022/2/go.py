@@ -15,20 +15,16 @@ def parse_file(file):
 
 def go():
     score, score2 = 0, 0
-    score2 = 0 
     for round in get_lines():
         opp, me = round.split(' ')
-        if opp == 'A': opp = 'X'
-        if opp == 'B': opp = 'Y'
-        if opp == 'C': opp = 'Z'
-        opp = ord(opp) - 87
+        opp = ord(opp) - 64
         me = ord(me) - 87
         score += me
         if opp == me:
             score +=3
         if (opp == 1 and me == 2) or (opp == 2 and me == 3) or(opp == 3 and me == 1):
             score +=6
-
+        # Part 2
         if me == 1:
             score2 += 0
             if opp == 1: score2 += 3
